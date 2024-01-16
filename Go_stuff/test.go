@@ -8,5 +8,7 @@ func Hello(name string)string{
 }
 
 func main(){
-	Hello()
+  var name string 
+  fmt.Scan(&name)
+  fmt.Printf(Hello(name))
 }
