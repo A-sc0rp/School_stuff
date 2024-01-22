@@ -1,0 +1,25 @@
+to-do list program [include adding an element, removing an element, modifying an element and clearing the list]
+12:56 <@P4Nc4k3> ASCII art clock which shows seconds, mins, hour and date, at each blink update screen with current time
+12:56 <@P4Nc4k3> Sudoku checker
+12:56 <@P4Nc4k3> program which lets user type their location, searches the weather and report it on the term
+12:56 <@P4Nc4k3> print fibonacci numbers in a spiral ASCII art
+12:56 <@P4Nc4k3> russian roulette in terminal, multiple rounds and players, if gun shots, blink the screen with ASCII art
+12:56 <@P4Nc4k3> equation x1,2 solver with the classic -b+sqrt(delta) / 2a formul
+13:00 < nine9> american units [miles, lbs, fahreneit] to european units converter [meters, kg, celsius]
+13:00 < nine9> sh1post generator [i.e given an array of silly words, generate a meme sentence]
+
+tic-tac-toe, but the board aint 3x3, the user gives you N, and you construct an NxN board based upon that
+13:05 < nine9> pepe picker : have a directory with pepe pics, ask the user "rate ur mood today" based on the number they input, open a pepe image e.g silly pepe, happy pepe, crying pepe
+to-do list program [include adding an element, removing an element, modifying an element and clearing the list]
+12:56 <@P4Nc4k3> ASCII art clock which shows seconds, mins, hour and date, at each blink update screen with current time
+12:56 <@P4Nc4k3> Sudoku checker
+12:56 <@P4Nc4k3> program which lets user type their location, searches the weather and report it on the term
+12:56 <@P4Nc4k3> print fibonacci numbers in a spiral ASCII art
+12:56 <@P4Nc4k3> russian roulette in terminal, multiple rounds and players, if gun shots, blink the screen with ASCII art
+12:56 <@P4Nc4k3> equation x1,2 solver with the classic -b+sqrt(delta) / 2a formul
+13:00 < nine9> american units [miles, lbs, fahreneit] to european units converter [meters, kg, celsius]
+13:00 < nine9> sh1post generator [i.e given an array of silly words, generate a meme sentence]
+
+tic-tac-toe, but the board aint 3x3, the user gives you N, and you construct an NxN board based upon that
+13:05 < nine9> pepe picker : have a directory with pepe pics, ask the user "rate ur mood today" based on the number they input, open a pepe image e.g silly pepe, happy pepe, crying pepe
+
