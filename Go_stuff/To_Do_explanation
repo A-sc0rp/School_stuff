@@ -1,1 +1,49 @@
 To_Do task explanation
+=================================================================================
+This program consists of these elements:
+ - a list with strings that reppresent tasks
+ - a function tha
+
+
+
+
+
+
+
+
+
+
+
+
+Things to add:
+ - if the task expires soon, it will send u a notification on a ntfy and on your computer
+ - log stack on local .txt file
+ - tasks have priority and the program wil schematize them in 4 sections like this
+
+               URGENT                            NOT URGENT 
+ +-------------------------------------------------------------------------+                                                                        |
+I|                                   |                                     |
+M|                                   |                                     |
+P|          MAX PRIORITY             |          LONG TERM TASKS            |
+ |                                   |                                     |     
+ |                                   |                                     |
+ |-----------------------------------|-------------------------------------|
+N|                                   |                                     |
+O|                                   |                                     |
+T|                                   |                                     |
+ |         SHORT TERM TASKS          |           MIN PRIORITY              |
+I|                                   |                                     |
+M|                                   |                                     |
+P|                                   |                                     |
+ +-------------------------------------------------------------------------+
+
+ - the program opens in a terminal occuping the whole window and u cant use terminal while using this program
+ - every task has its descriprion, date and time.
+ - after completing every task u get 15 minutes break, u can regulate its frequency or snoose it.
+
+
+
+
+
+
+
