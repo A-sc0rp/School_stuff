@@ -2,7 +2,7 @@ To_Do task explanation
 =================================================================================
 This program consists of these elements:
  - a list with strings that reppresent tasks
- - a function tha
+ - a function that prints a clock in ascii
 
 
 
