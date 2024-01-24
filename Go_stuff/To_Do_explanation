@@ -1,8 +1,24 @@
-To_Do task explanation
-=================================================================================
+Task Manager documentation
+==================%=============%================%===============================
 This program consists of these elements:
- - a list with strings that reppresent tasks
- - a function that prints a clock in ascii
+ - main file
+ - task file (object: task)
+ - method file (methods to use the object task)
+
+Structure of each file:
+======================MAIN=============================
+ - main function, which contains all the operations using the methods form method file
+======================METHOD===========================
+ - mehtod that reads commands and based on input calls methods from TASK
+======================TASK=============================
+ - a structure named *Task* that contains all the variables, like descriprion, name, deadline and priority
+ - method TaskAdd that corresponds to the /task-add command
+ - method TaskDelete that corresponds to the /task-delete command
+ - method TaskInfo that corresponds to the /task-info command
+ - method TaskModify that corresponds to the /task-modify command
+ - method Skip that corresponds to the /skip command
+ - method Snooze that corresponds to the /snooze command
+ - method Cancel that corresponds to the /cancel command
 
 Commands:
 Basically, this time manager works with commands. User needs to insert a commands to do certain things, for example:
