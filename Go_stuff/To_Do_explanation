@@ -4,16 +4,17 @@ This program consists of these elements:
  - a list with strings that reppresent tasks
  - a function that prints a clock in ascii
 
-
-
-
-
-
-
-
-
-
-
+Commands:
+Basically, this time manager works with commands. User needs to insert a commands to do certain things, for example:
+ - /help: prints all the commands available and explains what this program does
+ - /task-add: launches the method that asks description, priority, deadline (optional), and then adds the task to the queue
+ - /task-info: prints the task with its description and all data
+ - /task-delete: deletes tasks
+ - /task-modify: modifies tasks, basically /task-add but now you modify the content, if you press enter key, the field will remain intact
+ - /skip: skips current task or break
+ - /snooze **time_in_minutes**: snoozes the timer by the specifyed time
+ - /cancel: cancels last action
+ - /exit: exits the program
 
 Things to add:
  - if the task expires soon, it will send u a notification on a ntfy and on your computer
