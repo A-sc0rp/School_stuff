@@ -9,40 +9,38 @@ public class Rubrica
 {
     ArrayList<Contatto> rubrica = new ArrayList<>();
     Scanner tast = new Scanner(System.in);
-    LocalDateTime date = LocalDateTime.now();
-    String text = date.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-    LocalDateTime parsedDate = LocalDateTime.parse(text, DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+  public LocalDateTime parseTime()
+  {
+      LocalDateTime date = LocalDateTime.now();
+      String text = date.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+      return LocalDateTime.parse(text, DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+  }
 
-   private boolean writeOnFile(int mode, Contatto cont) throws IOException
+   private boolean writeOnFile() throws IOException
    {
         File file = new File("rubrica.txt");
-        switch(mode){
-            case 0 -> {
-                if(file.createNewFile()) return true;
-                else{
-                    file.delete();
-                    return file.createNewFile();
-                }
+        FileWriter writer = new FileWriter("rubrica.txt");
+        try(BufferedWriter bw = new BufferedWriter(writer)){
+            file.delete();
+            file.createNewFile();
+            rubrica.sort(Comparator.comparing(Contatto::getNome));
+            for(Contatto contatto:rubrica){
+                bw.write(contatto.toString());
+                bw.newLine();
             }
-            case 1 ->{
-                try(BufferedWriter bw = Files.newBufferedWriter(Path.of("rubrica.txt"))){
-                    for(Contatto contatto:rubrica){
-                        bw.write(contatto.toString());
-                        bw.newLine();
-                    }
-                    return true;
-                }
-            }
+            bw.flush();
+            bw.close();
+            return true;
         }
-        return true;
    }
+
+
     public void addContact() throws IOException
     {
         Contatto cont = new Contatto();
         try
         {
-            if (writeOnFile(0, cont))
-            {
+
                 System.out.println("Nome?");
                 cont.setNome(tast.nextLine().toLowerCase());
                 System.out.println("Cognome?");
@@ -82,12 +80,13 @@ public class Rubrica
                             default -> Contatto.etichetta.ALTRO;
                         };
                 cont.setEtichetta(etichettaScelta);
-                cont.setUltimaModifica(parsedDate);
+                cont.setUltimaModifica(parseTime());
                 System.out.println("Perfetto, il nuovo contatto è stato creato");
+                tast.nextLine();
                 rubrica.add(cont);
                 try
                 {
-                    if (writeOnFile(1, cont))
+                    if (writeOnFile())
                     {
                         System.out.println("Contatto è stato salvato sulla rubrica");
                     } else System.out.println("Qualcosa è andato storto, riprova");
@@ -95,7 +94,6 @@ public class Rubrica
                 {
                     System.out.println("File non trovato, imbecille");
                 }
-            } else System.out.println("File non esiste in questa directory");
         }catch(FileNotFoundException e){
             System.out.println("File non trovato, riprovi");
         }
@@ -113,9 +111,8 @@ public class Rubrica
             System.out.println("Non ho trovato il contatto secondo il numero specificato, forse lo devi ancora inserire:)");
         }
     }
-    public void modify(){
+    public boolean modify(){
         System.out.println("Telefono?");
-        tast.nextLine();
         String str = tast.nextLine().toLowerCase();
         for(Contatto cont : rubrica){
             if(cont.getTelefono().equals(str)){
@@ -126,43 +123,48 @@ public class Rubrica
                         2- Cognome
                         3- Etichetta
                         4- Numero di telefono
+                        5- Email
                         """);
                 int sc=tast.nextInt();
-                switch(sc){
-                    case 1:{
+                switch (sc)
+                {
+                    case 1 ->
+                    {
                         System.out.println("Scrivi qua il nuovo nome ");
                         tast.nextLine();
-                        String string =tast.nextLine().toLowerCase();
+                        String string = tast.nextLine().toLowerCase();
                         cont.setNome(string);
-                        cont.setUltimaModifica(parsedDate);
+                        cont.setUltimaModifica(parseTime());
                         System.out.println("Fatto :3");
+                        return true;
                     }
-                    break;
-                    case 2:{
+                    case 2 ->
+                    {
                         System.out.println("Scrivi qua il nuovo cognome ");
                         tast.nextLine();
                         String string = tast.nextLine().toLowerCase();
                         cont.setCongnome(string);
-                        cont.setUltimaModifica(parsedDate);
+                        cont.setUltimaModifica(parseTime());
                         System.out.println("Fatto :3");
+                        return true;
                     }
-                    break;
-                    case 3:{
+                    case 3 ->
+                    {
                         System.out.println("Scegli una nuova etichetta ");
                         System.out.println("""
-                   1-PADRE,
-                   2-MADRE,
-                   3-GENITORE,
-                   4-FRATELLO,
-                   5-SORELLA,
-                   6-CONIUGE,
-                   7-CONVIVENTE,
-                   8-PARTNER,
-                   9-FIGLIO_A,
-                   10-PARENTE,
-                   11-LAVORO,
-                   12-ALTRO
-                   """);
+                                        1-PADRE,
+                                        2-MADRE,
+                                        3-GENITORE,
+                                        4-FRATELLO,
+                                        5-SORELLA,
+                                        6-CONIUGE,
+                                        7-CONVIVENTE,
+                                        8-PARTNER,
+                                        9-FIGLIO_A,
+                                       10-PARENTE,
+                                       11-LAVORO,
+                                       12-ALTRO
+                                """);
                         Contatto.etichetta etichettaScelta = switch (tast.nextInt())
                                 {
                                     case 1 -> Contatto.etichetta.PADRE;
@@ -179,21 +181,36 @@ public class Rubrica
                                     default -> Contatto.etichetta.ALTRO;
                                 };
                         cont.setEtichetta(etichettaScelta);
-                        cont.setUltimaModifica(parsedDate);
+                        cont.setUltimaModifica(parseTime());
+                        System.out.println("Fatto :3");
+                        return true;
                     }
-                    break;
-                    case 4:{
+                    case 4 ->
+                    {
                         System.out.println("Scrivi qua il nuovo numero di telefono ");
+                        tast.nextLine();
                         String string = tast.nextLine().toLowerCase();
                         cont.setTelefono(string);
-                        cont.setUltimaModifica(parsedDate);
+                        cont.setUltimaModifica(parseTime());
                         System.out.println("Fatto :3");
+                        return true;
                     }
-                    break;
+                    case 5->
+                    {
+                        System.out.println("Inserisci qua il nuovo email ");
+                        tast.nextLine();
+                        String string = tast.nextLine().toLowerCase();
+                        cont.setEmail(string);
+                        cont.setUltimaModifica(parseTime());
+                        System.out.println("Fatto :3");
+                        return true;
+                    }
                 }
             }
-            System.out.println("Non ho trovato il contatto secondo il numero specificato, forse lo devi ancora inserire:)");
+
         }
+        System.out.println("Non ho trovato il contatto secondo il numero specificato, forse lo devi ancora inserire:)");
+        return false;
     }
     public void printRubrica(){
        rubrica.sort(Comparator.comparing(Contatto::getNome));

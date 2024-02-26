@@ -1,1 +1,1 @@
-Contatto{nome='erty', congnome='erty', telefono='erty', email='erty', etichetta='FRATELLO', ultima modifica del contatto=2024-02-21T11:58:51}
+Contatto{nome='pio', congnome='mazilli', telefono='123', email='keklol', etichetta='GENITORE', ultima modifica del contatto=2024-02-26T13:45:09}

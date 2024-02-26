@@ -29,7 +29,11 @@ public class Main
             {
                 case 1 ->rubrica.addContact();
 
-                case 2 ->rubrica.modify();
+                case 2 ->
+                {
+                    if(rubrica.modify()) System.out.println("Modifica è andata a buon fine");
+                    else System.out.println("Qualcosa è andato storto");
+                }
 
                 case 3 -> rubrica.removeContact();
 
