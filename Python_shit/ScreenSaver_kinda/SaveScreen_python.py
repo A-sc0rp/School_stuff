@@ -1,6 +1,5 @@
 import cv2 as cv
 import pyautogui as ui
-import subprocess
 
 def motion(verse, h, w):
 
@@ -53,9 +52,8 @@ while True:
     w=motion(verse, h, w)[1]
     cv.imshow(text, img)
     cv.moveWindow(text, h, w)
-    #subprocess.run(['cmd'])
     
     print(h, hmax, w, wmax, )
-    if cv.waitKey(0) == 113:
+    if cv.waitKey(2) == 113:
         cv.destroyAllWindows()
         break
